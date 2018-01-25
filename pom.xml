@@ -23,6 +23,9 @@
     <modules>
         <module>discovery-server</module>
         <module>monitor-server</module>
+        <module>common</module>
+        <module>feign-service</module>
+        <module>feign-consumer</module>
     </modules>
 
     <dependencies>
