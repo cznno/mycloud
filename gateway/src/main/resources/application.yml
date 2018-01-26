@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8094
 
 eureka:
   instance:
@@ -10,4 +10,10 @@ eureka:
 
 spring:
   application:
-    name: hello-service
+    name: gateway
+
+zuul:
+  routes:
+    hello:
+      path: /hello/**
+      url: http://localhost:8092/

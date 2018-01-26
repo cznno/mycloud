@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by cznno
  * Date: 18-1-25
  */
-@FeignClient("hello-service")
+@FeignClient(name = "hello-service")
 public interface HelloService {
 
     @GetMapping("/hello")

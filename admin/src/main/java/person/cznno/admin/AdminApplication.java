@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableDiscoveryClient
 @MapperScan(basePackages = "person.cznno.*.dao")
-public class Application extends SpringBootServletInitializer {
+public class AdminApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 }
