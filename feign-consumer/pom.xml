@@ -6,7 +6,6 @@
         <artifactId>feign-service</artifactId>
         <groupId>person.cznno</groupId>
         <version>0.1</version>
-        <relativePath>../feign-service/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

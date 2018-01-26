@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-      name: admin-server
+      name: monitor-server
   boot:
     admin:
       url: http://localhost:8050
@@ -14,7 +14,6 @@ eureka:
     prefer-ip-address: true
     hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8090/eureka/

@@ -6,7 +6,7 @@
 
     <artifactId>discovery-server</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <parent>
         <groupId>person.cznno</groupId>

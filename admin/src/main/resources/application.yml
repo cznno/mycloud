@@ -1,0 +1,44 @@
+spring:
+    datasource:
+      driver-class-name: org.mariadb.jdbc.Driver
+      url: jdbc:mariadb://localhost:3306/zero?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: root
+      password: root1234
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        maximum-pool-size: 20
+        connection-timeout: 60000
+        minimum-idle: 5
+    application:
+        name: admin-server
+    boot:
+      admin:
+        url: http://localhost:8050
+
+logging:
+  level: trace
+#  config: classpath:logback-spring.xml
+
+mybatis:
+    mapper-locations: classpath:mapper/*/*/*.xml
+
+mapper:
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql, pageSizeZero=true, reasonable=true, supportMethodsArguments=true
+
+server:
+  port: 8093
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8090/eureka/
