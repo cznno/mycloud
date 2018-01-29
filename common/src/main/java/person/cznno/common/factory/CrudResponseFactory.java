@@ -2,7 +2,7 @@ package person.cznno.common.factory;
 
 import person.cznno.common.dto.response.BaseResponse;
 import person.cznno.common.dto.response.Response;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
 
 import static person.cznno.common.util.VerifyUtil.isNullOrEmpty;
 

@@ -1,18 +1,16 @@
 package person.cznno.admin.controller;
 
+import io.swagger.annotations.*;
 import person.cznno.admin.entity.UserEntity;
 import person.cznno.admin.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import person.cznno.common.annotation.ApiResponseDelete;
 import person.cznno.common.annotation.ApiResponseInsert;
 import person.cznno.common.annotation.ApiResponseUpdate;
 import person.cznno.common.dto.response.Response;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
+import person.cznno.common.exception.CrudException;
 import person.cznno.common.factory.CrudResponseFactory;
 import person.cznno.common.factory.PagedResponseFactory;
 

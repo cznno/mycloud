@@ -5,7 +5,7 @@ import person.cznno.common.dto.response.BaseResponse;
 import person.cznno.common.dto.response.PagedResponse;
 import person.cznno.common.dto.response.Response;
 import person.cznno.common.enums.BaseStatusEnum;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
 
 /**
  * 分页返回消息工厂

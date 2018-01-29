@@ -1,4 +1,4 @@
-package person.cznno.common.exception;
+package person.cznno.common.enums;
 
 import person.cznno.common.enums.BaseStatusEnum;
 

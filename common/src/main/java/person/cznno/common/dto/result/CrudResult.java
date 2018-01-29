@@ -2,7 +2,7 @@ package person.cznno.common.dto.result;
 
 import lombok.Getter;
 import lombok.Setter;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
 
 /**
  * Created by cznno

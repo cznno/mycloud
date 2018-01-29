@@ -1,0 +1,26 @@
+server:
+  port: 8062
+
+spring:
+  application:
+      name: turbine-server
+  boot:
+    admin:
+      url: http://localhost:8060
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8050/eureka/
+
+management:
+  port: 8063
+turbine:
+  app-config: ADMIN
+  cluster-name-expression: "admin"
+  combine-host-port: true

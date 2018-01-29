@@ -1,19 +1,22 @@
 server:
-  port: 8094
+  port: 8051
 
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8090/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8050/eureka/
 
 spring:
   application:
     name: gateway
+  boot:
+    admin:
+      url: http://localhost:8060
 
 zuul:
   routes:
-    hello:
+    admin:
       path: /hello/**
-      url: http://localhost:8092/
+      serviceId: admin

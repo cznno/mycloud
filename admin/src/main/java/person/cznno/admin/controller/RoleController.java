@@ -12,7 +12,7 @@ import person.cznno.common.annotation.ApiResponseDelete;
 import person.cznno.common.annotation.ApiResponseInsert;
 import person.cznno.common.annotation.ApiResponseUpdate;
 import person.cznno.common.dto.response.Response;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
 import person.cznno.common.factory.CrudResponseFactory;
 import person.cznno.common.factory.PagedResponseFactory;
 

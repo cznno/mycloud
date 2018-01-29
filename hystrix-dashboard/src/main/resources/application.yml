@@ -1,9 +1,9 @@
 server:
-  port: 8060
+  port: 8061
 
 spring:
   application:
-      name: monitor-server
+      name: hystrix-dashboard
   boot:
     admin:
       url: http://localhost:8060

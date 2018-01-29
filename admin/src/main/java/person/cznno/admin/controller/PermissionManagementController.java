@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import person.cznno.common.annotation.ApiResponseUpdate;
 import person.cznno.common.dto.response.Response;
-import person.cznno.common.exception.CrudStatusEnum;
+import person.cznno.common.enums.CrudStatusEnum;
 import person.cznno.common.factory.CrudResponseFactory;
 
 import java.util.List;
