@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableDiscoveryClient
-@EnableCircuitBreaker
 @EnableFeignClients
 @MapperScan(basePackages = "person.cznno.*.dao")
 public class AdminApplication extends SpringBootServletInitializer {
