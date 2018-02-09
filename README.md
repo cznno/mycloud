@@ -48,4 +48,6 @@ port: 9001
 
 ### feign-service
 
-port: 9002
+port: 9002   
+### vertx-service   
+port: 9003
