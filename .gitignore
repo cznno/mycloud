@@ -2,3 +2,6 @@
 *.iml
 */target/
 application-db.yml
+.vertx/
+application-mail.yml
+application-ops.yml
