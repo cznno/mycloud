@@ -24,8 +24,10 @@ import person.cznno.common.factory.PagedResponseFactory;
 @Api(description = "用户CRUD", tags = "角色权限管理")
 public class UserController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {this.userService = userService;}
 
     /**
      * 查询全部用户

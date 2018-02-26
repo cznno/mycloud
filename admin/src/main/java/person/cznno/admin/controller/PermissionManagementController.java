@@ -30,8 +30,10 @@ import java.util.List;
 @Api(description = "权限控制", tags = "角色权限管理")
 public class PermissionManagementController {
 
+    private final AccessControlService accessControlService;
+
     @Autowired
-    private AccessControlService accessControlService;
+    public PermissionManagementController(AccessControlService accessControlService) {this.accessControlService = accessControlService;}
 
     /**
      * 修改角色-权限关联

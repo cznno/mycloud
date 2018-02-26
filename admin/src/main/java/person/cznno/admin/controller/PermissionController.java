@@ -23,8 +23,10 @@ import person.cznno.common.factory.PagedResponseFactory;
 @Api(description = "权限CRUD",tags = "角色权限管理")
 public class PermissionController {
 
+    private final PermissionService permissionService;
+
     @Autowired
-    private PermissionService permissionService;
+    public PermissionController(PermissionService permissionService) {this.permissionService = permissionService;}
 
     /**
      * 查询全部权限

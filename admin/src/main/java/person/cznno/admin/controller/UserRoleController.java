@@ -26,8 +26,10 @@ import person.cznno.common.factory.PagedResponseFactory;
 @Api(description = "用户角色关联CRUD", tags = "角色权限管理")
 public class UserRoleController {
 
+    private final UserRoleService userRoleService;
+
     @Autowired
-    private UserRoleService userRoleService;
+    public UserRoleController(UserRoleService userRoleService) {this.userRoleService = userRoleService;}
 
     /**
      * 查询所有用户角色关联

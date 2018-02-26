@@ -26,8 +26,10 @@ import person.cznno.common.factory.PagedResponseFactory;
 @Api(description = "角色权限关联CRUD", tags = "角色权限管理")
 public class RolePermissionController {
 
+    private final RolePermissionService rolePermissionService;
+
     @Autowired
-    private RolePermissionService rolePermissionService;
+    public RolePermissionController(RolePermissionService rolePermissionService) {this.rolePermissionService = rolePermissionService;}
 
     /**
      * 查询所有角色权限
