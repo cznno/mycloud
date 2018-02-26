@@ -22,6 +22,22 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.1</version>
         </dependency>
+
+        <dependency>
+            <artifactId>my-cloud-parent</artifactId>
+            <groupId>person.cznno</groupId>
+            <version>0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.codecentric</groupId>
+                    <artifactId>spring-boot-admin-starter-client</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
 </project>

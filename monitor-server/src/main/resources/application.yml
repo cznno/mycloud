@@ -7,7 +7,8 @@ spring:
   boot:
     admin:
       url: http://localhost:8060
-
+  profiles:
+      include: mail, ops
 
 eureka:
   instance:

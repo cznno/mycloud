@@ -6,11 +6,13 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import person.cznno.admin.service.ErrorHandlerService;
 import person.cznno.common.dto.response.BaseResponse;
 import person.cznno.common.dto.response.Response;
 import person.cznno.common.enums.AuthStatusEnum;
@@ -23,6 +25,9 @@ import person.cznno.common.exception.ParamErrorException;
 
 import javax.naming.AuthenticationException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 
 /**
  * 所有controller的切面
@@ -35,6 +40,11 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 @Order(1)
 public class ControllerAspect {
+
+    private final ErrorHandlerService errorHandler;
+
+    @Autowired
+    public ControllerAspect(ErrorHandlerService errorHandler) {this.errorHandler = errorHandler;}
 
     @Pointcut("execution(public * person.cznno.admin.controller..*(..))")
     public void controllerAspect() {}
@@ -81,8 +91,11 @@ public class ControllerAspect {
         } else if (e.getCause() instanceof MySQLIntegrityConstraintViolationException) {
             result = getResult(CrudStatusEnum.DELETE_FAIL_CONSTRAINT, e);
         } else {
+            Writer w = new StringWriter();
+            PrintWriter pw = new PrintWriter(w);
+            e.printStackTrace(pw);
+            errorHandler.hello(w.toString());
             log.error("未知的异常" + pjp.getSignature() + " error ", e);
-            //TODO 未知的异常，应该格外注意，可以发送邮件通知等
             result = new BaseResponse();
             result.setSuccess(false);
             result.setMsg("系统错误, 请稍后再试");
