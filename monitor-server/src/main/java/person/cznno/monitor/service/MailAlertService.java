@@ -37,7 +37,7 @@ public class MailAlertService {
         MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
         helper.setFrom(sendFrom);
         helper.setTo(sendTo);
-        helper.setSubject("服务错误告警");
+    helper.setSubject("服务错误告警");
         helper.setText(errorCode);
 
         mailSender.send(mimeMessage);

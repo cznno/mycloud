@@ -50,7 +50,7 @@ public class ControllerAspect {
     public void controllerAspect() {}
 
     @Around("controllerAspect()")
-    public Object handlerControllerMethod(ProceedingJoinPoint pjp) {
+    public Response handlerControllerMethod(ProceedingJoinPoint pjp) {
 
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
@@ -60,7 +60,8 @@ public class ControllerAspect {
         String method = request.getMethod();
         String uri = request.getRequestURI();
         String queryString = request.getQueryString();
-        log.info("收到请求:\n url: {}\n method: {}\n uri: {}\n params: {}", url, method, uri, queryString);
+        log.info("收到请求:\n url: {}\n method: {}\n uri: {}\n params: {}",
+                url, method, uri, queryString);
 
         long startTime = System.currentTimeMillis();
 
@@ -79,7 +80,7 @@ public class ControllerAspect {
 
         BaseResponse result;
 
-        // 已知异常
+        // 可处理/已预料的异常
         if (e instanceof AuthenticationException) {
             result = getResult(AuthStatusEnum.LOGIN_FAIL_NOT_MATCH, e);
         } else if (e instanceof NoPermissionException) {
@@ -91,6 +92,7 @@ public class ControllerAspect {
         } else if (e.getCause() instanceof MySQLIntegrityConstraintViolationException) {
             result = getResult(CrudStatusEnum.DELETE_FAIL_CONSTRAINT, e);
         } else {
+            //未预料的异常
             Writer w = new StringWriter();
             PrintWriter pw = new PrintWriter(w);
             e.printStackTrace(pw);
@@ -99,7 +101,6 @@ public class ControllerAspect {
             result = new BaseResponse();
             result.setSuccess(false);
             result.setMsg("系统错误, 请稍后再试");
-//            result.setMsg(e.toString());
         }
         return result;
     }
