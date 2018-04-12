@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface ErrorHandlerService {
 
     @PostMapping("/alertMail")
-    void hello(@RequestBody String errorCode);
+    void alertMail(@RequestBody String errorCode);
 }
